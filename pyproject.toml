@@ -1,0 +1,81 @@
+[build-system]
+# NOTE: todo.md listed "setuptools.backends.legacy:build", which does not exist.
+# setuptools.build_meta is the real PEP 517 backend. setuptools>=77 is needed
+# for the PEP 639 SPDX `license` field below.
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llmcomply"
+version = "0.2.0"
+description = "Privacy compliance testing for LLM apps: DPDP Act and GDPR evidence reports, PII detection, redaction"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Mayank Hete", email = "mayankrajeshhete@gmail.com" }]
+requires-python = ">=3.9"
+keywords = ["llm", "testing", "privacy", "compliance", "gdpr", "dpdp", "pii", "redaction", "responsible-ai", "genai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "requests>=2.28",        # HTTP calls to LLM endpoints
+    "pydantic>=2.0",         # Schema validation for LLM output
+    "jinja2>=3.1",           # HTML report templating
+    "pytest>=7.0",           # Test runner integration
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest-cov",            # Coverage reporting
+    "pytest-html",           # HTML test output
+    "httpx",                 # For async endpoint testing
+    "black",                 # Formatter
+    "ruff",                  # Linter
+    "twine",                 # PyPI upload tool
+    "build",                 # Package builder
+    "fastapi",               # Mock LLM server (examples/mock_server.py)
+    "uvicorn",               # Serves the mock LLM server
+]
+
+[project.urls]
+Homepage = "https://github.com/Rancidcake/llmcomply"
+Repository = "https://github.com/Rancidcake/llmcomply"
+Issues = "https://github.com/Rancidcake/llmcomply/issues"
+Changelog = "https://github.com/Rancidcake/llmcomply/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+include = ["llmcomply*"]
+
+[tool.setuptools.package-data]
+llmcomply = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+# Optional[...] / Union[...] kept deliberately for readability alongside 3.9 support.
+ignore = ["UP007", "UP045", "SIM905"]
+
+[tool.ruff.lint.per-file-ignores]
+"llmcomply/report.py" = ["E501"]  # inline HTML/CSS template
+"llmcomply/compliance.py" = ["E501"]
+"tests/*" = ["RUF012"]  # tests mirror user-style custom checks
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
