@@ -52,6 +52,7 @@ Homepage = "https://github.com/Rancidcake/privacyprobe"
 Repository = "https://github.com/Rancidcake/privacyprobe"
 Issues = "https://github.com/Rancidcake/privacyprobe/issues"
 Changelog = "https://github.com/Rancidcake/privacyprobe/blob/main/CHANGELOG.md"
+Demo = "https://github.com/Rancidcake/finbot-safety-demo"
 
 [tool.setuptools.packages.find]
 include = ["privacyprobe*"]
