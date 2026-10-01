@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "privacyprobe"
-version = "0.2.0"
+version = "0.2.1"
 description = "Privacy compliance testing for LLM apps: DPDP Act and GDPR evidence reports, PII detection, redaction"
 readme = "README.md"
 license = "MIT"
