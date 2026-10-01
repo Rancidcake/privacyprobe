@@ -232,3 +232,4 @@ Releases are published to PyPI automatically when a `v*` tag matching the versio
 ## Author
 
 Built by **Mayank Hete** ([mayankrajeshhete@gmail.com](mailto:mayankrajeshhete@gmail.com)). Licensed under [MIT](LICENSE).
+![FinBot leaks Aadhaar and PAN; privacyprobe flags DPDP s.8(5)](https://raw.githubusercontent.com/Rancidcake/finbot-safety-demo/v1.0/docs/hero.png)
