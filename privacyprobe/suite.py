@@ -8,8 +8,8 @@ from typing import Any, Callable, Optional
 
 import requests
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.result import SuiteResult, TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.result import SuiteResult, TestResult
 
 ModelFn = Callable[[str], str]
 

@@ -5,7 +5,7 @@ python examples/agent_pipeline_check.py
 
 import json
 
-from llmcomply import AgentFlowCheck, Suite
+from privacyprobe import AgentFlowCheck, Suite
 
 # Allowed state machine for a retrieval-augmented support agent.
 TRANSITIONS = {

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-import llmcomply
-from llmcomply import (
+import privacyprobe
+from privacyprobe import (
     BaseCheck,
     LatencyCheck,
     PIILeakCheck,
@@ -15,9 +15,9 @@ from llmcomply import (
 
 
 def test_public_api_exports():
-    for name in llmcomply.__all__:
-        assert hasattr(llmcomply, name)
-    assert llmcomply.__version__
+    for name in privacyprobe.__all__:
+        assert hasattr(privacyprobe, name)
+    assert privacyprobe.__version__
 
 
 def test_fluent_add_returns_suite():
@@ -118,7 +118,7 @@ def test_run_validation():
 def test_injection_suite_end_to_end():
     check = PromptInjectionCheck()
     vulnerable = Suite(
-        model_fn=lambda p: check.canary if "canary" in p.lower() or "LLMCOMPLY" in p else "no"
+        model_fn=lambda p: check.canary if "canary" in p.lower() or "PRIVACYPROBE" in p else "no"
     )
     result = vulnerable.add(check).run(check.attack_cases())
     assert result.failed == result.total

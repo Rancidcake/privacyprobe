@@ -7,8 +7,8 @@ from collections.abc import Iterable
 from dataclasses import replace
 from typing import Any, Optional, Union
 
-from llmcomply.checks.pii_leak import PIIMatch, resolve_types, scan
-from llmcomply.result import SuiteResult, TestResult
+from privacyprobe.checks.pii_leak import PIIMatch, resolve_types, scan
+from privacyprobe.result import SuiteResult, TestResult
 
 STYLES = ("label", "mask", "hash")
 

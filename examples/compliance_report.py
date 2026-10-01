@@ -6,7 +6,7 @@ Writes compliance.html, compliance.md and compliance.json. In GitHub Actions,
 append compliance.md to $GITHUB_STEP_SUMMARY to show it on the run page.
 """
 
-from llmcomply import (
+from privacyprobe import (
     BaseCheck,
     HallucinationCheck,
     PIILeakCheck,

@@ -7,8 +7,8 @@ from typing import Any
 
 from pydantic import BaseModel, ValidationError
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.result import TestResult
 
 _FENCE_RE = re.compile(r"^\s*```(?:json)?\s*\n(.*?)\n?\s*```\s*$", re.DOTALL | re.IGNORECASE)
 

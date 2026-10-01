@@ -7,9 +7,9 @@ from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import Any, Callable, Optional, Union
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.regulations import CHECK_CLAUSES, get_regulation
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.regulations import CHECK_CLAUSES, get_regulation
+from privacyprobe.result import TestResult
 
 # --- checksum validators -------------------------------------------------------
 # Applied after a regex match to discard look-alike numbers (order IDs, etc.).

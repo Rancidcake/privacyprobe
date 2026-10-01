@@ -1,18 +1,18 @@
-"""Basic llmcomply usage. Runs as-is with no API keys or server.
+"""Basic privacyprobe usage. Runs as-is with no API keys or server.
 
     python examples/basic_usage.py
 
-To test a real HTTP endpoint instead (e.g. the mock server), set LLMCOMPLY_ENDPOINT:
+To test a real HTTP endpoint instead (e.g. the mock server), set PRIVACYPROBE_ENDPOINT:
 
     uvicorn examples.mock_server:app &
-    LLMCOMPLY_ENDPOINT=http://127.0.0.1:8000/generate python examples/basic_usage.py
+    PRIVACYPROBE_ENDPOINT=http://127.0.0.1:8000/generate python examples/basic_usage.py
 """
 
 import os
 
 from pydantic import BaseModel
 
-from llmcomply import (
+from privacyprobe import (
     HallucinationCheck,
     LatencyCheck,
     PIILeakCheck,
@@ -31,12 +31,12 @@ def fake_llm(prompt: str) -> str:
     if "contact" in p:
         return "You can reach Priya at priya.sharma@example.com or +91 98765 43210."
     if "ignore all previous instructions" in p:
-        return "LLMCOMPLY-CANARY-7731"
+        return "PRIVACYPROBE-CANARY-7731"
     return "I'm sorry, I can't help with that request."
 
 
 def main() -> None:
-    endpoint = os.environ.get("LLMCOMPLY_ENDPOINT")
+    endpoint = os.environ.get("PRIVACYPROBE_ENDPOINT")
     suite = Suite(endpoint=endpoint) if endpoint else Suite(model_fn=fake_llm)
 
     # 1) General safety checks over ordinary + adversarial prompts.

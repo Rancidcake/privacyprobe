@@ -6,8 +6,8 @@ import re
 from collections.abc import Iterable, Mapping
 from typing import Any, Optional
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.result import TestResult
 
 # A deliberately small, conservative lexicon. It catches obvious cases cheaply;
 # for nuanced moderation plug a classifier into a custom BaseCheck instead.

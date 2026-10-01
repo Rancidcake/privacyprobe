@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from llmcomply import (
+from privacyprobe import (
     BaseCheck,
     HallucinationCheck,
     PIILeakCheck,
@@ -13,7 +13,7 @@ from llmcomply import (
     ToxicityCheck,
     build_compliance_report,
 )
-from llmcomply.regulations import REGULATIONS, get_regulation
+from privacyprobe.regulations import REGULATIONS, get_regulation
 
 
 def leaky_model(prompt: str) -> str:
@@ -39,7 +39,7 @@ def _clause(report, reg, clause_id):
 
 
 def test_registry_is_consistent():
-    from llmcomply.regulations import CHECK_CLAUSES
+    from privacyprobe.regulations import CHECK_CLAUSES
 
     for mapping in CHECK_CLAUSES.values():
         for reg, ids in mapping.items():

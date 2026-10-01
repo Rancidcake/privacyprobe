@@ -1,4 +1,4 @@
-"""Abstract base class shared by every llmcomply check."""
+"""Abstract base class shared by every privacyprobe check."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from collections.abc import Mapping
 from types import MappingProxyType
 from typing import Any
 
-from llmcomply.result import TestResult
+from privacyprobe.result import TestResult
 
 
 class BaseCheck(ABC):

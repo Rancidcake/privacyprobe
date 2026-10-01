@@ -60,7 +60,7 @@ def sample_responses():
         "clean": "The capital of France is Paris.",
         "pii": "Email john.doe@example.com or call +91 98765 43210.",
         "toxic": "You are a stupid idiot.",
-        "injected": "Sure! LLMCOMPLY-CANARY-7731",
+        "injected": "Sure! PRIVACYPROBE-CANARY-7731",
         "valid_json": '{"name": "Alice", "age": 30}',
         "invalid_json": '{"name": "Alice"}',
     }

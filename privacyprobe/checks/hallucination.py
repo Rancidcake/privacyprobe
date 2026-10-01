@@ -6,9 +6,9 @@ import re
 from collections.abc import Sequence
 from typing import Any, Callable, Optional, Union
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.regulations import CHECK_CLAUSES
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.regulations import CHECK_CLAUSES
+from privacyprobe.result import TestResult
 
 _TOKEN_RE = re.compile(r"[a-z0-9]+(?:[.'][a-z0-9]+)*")
 
@@ -43,7 +43,7 @@ class HallucinationCheck(BaseCheck):
 
     By default similarity is keyword overlap. Pass ``similarity_fn`` to plug in
     semantic similarity (e.g. embedding cosine similarity) without adding
-    dependencies to llmcomply itself.
+    dependencies to privacyprobe itself.
 
     Facts and forbidden claims can be given here or per test case via the
     ``facts`` / ``forbidden`` keys; per-case values take precedence.

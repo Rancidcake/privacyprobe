@@ -83,7 +83,7 @@ class SuiteResult:
         ``output`` defaults to ``report.html`` or ``report.json`` to match ``format``.
         ``redact=True`` strips personal data from the report.
         """
-        from llmcomply.report import generate_report
+        from privacyprobe.report import generate_report
 
         return generate_report(self, format=format, output=output, redact=redact)
 
@@ -97,6 +97,6 @@ class SuiteResult:
 
         ``format`` is ``html``, ``json`` or ``md``. Personal data is always redacted.
         """
-        from llmcomply.compliance import build_compliance_report
+        from privacyprobe.compliance import build_compliance_report
 
         return build_compliance_report(self, regulations).save(format, output)

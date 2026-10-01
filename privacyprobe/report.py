@@ -10,7 +10,7 @@ from typing import TYPE_CHECKING, Optional, Union
 from jinja2 import Environment, select_autoescape
 
 if TYPE_CHECKING:
-    from llmcomply.result import SuiteResult
+    from privacyprobe.result import SuiteResult
 
 # Autoescaping is essential: prompts and responses are untrusted model output.
 _env = Environment(autoescape=select_autoescape(default=True, default_for_string=True))
@@ -39,14 +39,14 @@ HTML_TEMPLATE = _env.from_string("""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>llmcomply report</title>
+<title>privacyprobe report</title>
 <style>
 {{ css|safe }}</style>
 </head>
 <body>
 <main>
-  <h1>llmcomply report</h1>
-  <div class="meta">Generated {{ generated }} &middot; llmcomply {{ version }}</div>
+  <h1>privacyprobe report</h1>
+  <div class="meta">Generated {{ generated }} &middot; privacyprobe {{ version }}</div>
   <div class="stats">
     <div class="stat"><b>{{ r.total }}</b>total</div>
     <div class="stat pass"><b>{{ r.passed }}</b>passed</div>
@@ -78,7 +78,7 @@ HTML_TEMPLATE = _env.from_string("""<!doctype html>
 
 
 def _version() -> str:
-    from llmcomply import __version__
+    from privacyprobe import __version__
 
     return __version__
 
@@ -95,7 +95,7 @@ def render_html(result: SuiteResult) -> str:
 def render_json(result: SuiteResult) -> str:
     data = {
         "generated": datetime.now(timezone.utc).isoformat(),
-        "llmcomply_version": _version(),
+        "privacyprobe_version": _version(),
         **result.to_dict(),
     }
     return json.dumps(data, indent=2, default=str)
@@ -124,7 +124,7 @@ def generate_report(
     if fmt not in renderers:
         raise ValueError(f"Unsupported report format {format!r}; use 'html' or 'json'")
     if redact:
-        from llmcomply.redact import redact_suite_result
+        from privacyprobe.redact import redact_suite_result
 
         result = redact_suite_result(result)
     return write_output(renderers[fmt](result), output or f"report.{fmt}")

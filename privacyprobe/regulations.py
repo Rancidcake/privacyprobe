@@ -4,7 +4,7 @@ When a law or its interpretation changes, update this file only. Clause
 references are kept short and stable (section / article numbers); the
 summaries are plain-language paraphrases, not legal text.
 
-This module deliberately imports nothing from llmcomply so any module can use it.
+This module deliberately imports nothing from privacyprobe so any module can use it.
 """
 
 from __future__ import annotations

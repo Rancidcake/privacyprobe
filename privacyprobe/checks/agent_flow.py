@@ -6,8 +6,8 @@ import json
 from collections.abc import Iterable, Mapping
 from typing import Any, Optional
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.result import TestResult
 
 _STATE_KEYS = ("state", "step", "name", "action", "tool")
 

@@ -9,10 +9,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from llmcomply.redact import redact_result
-from llmcomply.regulations import CHECK_CLAUSES, Clause, Regulation, get_regulation
-from llmcomply.report import BASE_CSS, _env, _version, write_output
-from llmcomply.result import SuiteResult, TestResult
+from privacyprobe.redact import redact_result
+from privacyprobe.regulations import CHECK_CLAUSES, Clause, Regulation, get_regulation
+from privacyprobe.report import BASE_CSS, _env, _version, write_output
+from privacyprobe.result import SuiteResult, TestResult
 
 DISCLAIMER = (
     "This report summarises automated test evidence. It is not legal advice and does not "
@@ -121,7 +121,7 @@ class ComplianceReport:
     def to_dict(self) -> dict[str, Any]:
         return {
             "generated": self.generated,
-            "llmcomply_version": _version(),
+            "privacyprobe_version": _version(),
             "disclaimer": DISCLAIMER,
             "total_results": self.total_results,
             "regulations": [s.to_dict() for s in self.sections],
@@ -136,7 +136,7 @@ class ComplianceReport:
         lines = [
             "# Privacy compliance evidence report",
             "",
-            f"Generated {self.generated} · llmcomply {_version()} · {self.total_results} results",
+            f"Generated {self.generated} · privacyprobe {_version()} · {self.total_results} results",
             "",
             f"> {DISCLAIMER}",
         ]
@@ -235,7 +235,7 @@ _COMPLIANCE_TEMPLATE = _env.from_string("""<!doctype html>
 <body>
 <main>
   <h1>Privacy compliance evidence report</h1>
-  <div class="meta">Generated {{ report.generated }} &middot; llmcomply {{ version }} &middot; {{ report.total_results }} test results</div>
+  <div class="meta">Generated {{ report.generated }} &middot; privacyprobe {{ version }} &middot; {{ report.total_results }} test results</div>
   <p class="disclaimer">{{ disclaimer }}</p>
   {% for s in report.sections %}
   <section>

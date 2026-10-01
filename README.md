@@ -1,13 +1,13 @@
-# llmcomply
+# privacyprobe
 
-[![PyPI](https://img.shields.io/pypi/v/llmcomply)](https://pypi.org/project/llmcomply/)
-[![CI](https://github.com/Rancidcake/llmcomply/actions/workflows/ci.yml/badge.svg)](https://github.com/Rancidcake/llmcomply/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/pypi/pyversions/llmcomply)](https://pypi.org/project/llmcomply/)
+[![PyPI](https://img.shields.io/pypi/v/privacyprobe)](https://pypi.org/project/privacyprobe/)
+[![CI](https://github.com/Rancidcake/privacyprobe/actions/workflows/ci.yml/badge.svg)](https://github.com/Rancidcake/privacyprobe/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/pypi/pyversions/privacyprobe)](https://pypi.org/project/privacyprobe/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **Privacy compliance testing for LLM apps, built for India's DPDP Act and the EU GDPR.**
 
-llmcomply runs your chatbot against test prompts and turns the results into a clause-by-clause
+privacyprobe runs your chatbot against test prompts and turns the results into a clause-by-clause
 evidence report: which DPDP sections and GDPR articles were tested, which failed, and why,
 with personal data redacted from the report itself. It also covers general LLM quality
 checks (hallucination, schema, toxicity, latency, agent flows).
@@ -23,7 +23,7 @@ checks (hallucination, schema, toxicity, latency, agent flows).
 ## Install
 
 ```bash
-pip install llmcomply
+pip install privacyprobe
 ```
 
 Requires Python 3.9+.
@@ -31,7 +31,7 @@ Requires Python 3.9+.
 ## Compliance quickstart
 
 ```python
-from llmcomply import Suite, PIILeakCheck, PromptInjectionCheck
+from privacyprobe import Suite, PIILeakCheck, PromptInjectionCheck
 
 def my_chatbot(prompt: str) -> str:      # swap in your real model call
     if "account" in prompt:
@@ -64,7 +64,7 @@ The report lists every tracked clause with a status:
 **NOT TESTED** is shown on purpose: the report tells an auditor where coverage is missing
 instead of implying everything is fine. Failing evidence is included with personal data redacted.
 
-> **Not legal advice.** llmcomply produces *testing evidence* for your DPDP / GDPR assessments
+> **Not legal advice.** privacyprobe produces *testing evidence* for your DPDP / GDPR assessments
 > (DPIAs, audits, vendor questionnaires). It cannot by itself make a system compliant.
 
 ### Clauses tracked
@@ -75,13 +75,13 @@ instead of implying everything is fine. Failing evidence is included with person
 | s.8(3) Accuracy | Art. 5(1)(d) | `HallucinationCheck` |
 | s.5 Notice, s.6 Consent, s.8(7) Erasure on purpose end, s.9 Children, s.11 Access, s.12 Correction & erasure | Art. 5(1)(c), Art. 8, Art. 9, Art. 15, Art. 17 | Your custom checks today (see below); built-in checks planned |
 
-The mapping lives in one file, [`llmcomply/regulations.py`](llmcomply/regulations.py), so it
+The mapping lives in one file, [`privacyprobe/regulations.py`](privacyprobe/regulations.py), so it
 is easy to review and update.
 
 ### Redaction
 
 ```python
-from llmcomply import redact
+from privacyprobe import redact
 
 redact("Mail priya@example.com, call +91 98765 43210")
 # 'Mail [EMAIL], call [PHONE]'
@@ -97,7 +97,7 @@ redact("priya@example.com", style="hash", salt="your-secret")   # stable pseudon
 Copy and run. No API keys needed:
 
 ```python
-from llmcomply import Suite, PIILeakCheck, PromptInjectionCheck, ToxicityCheck, HallucinationCheck
+from privacyprobe import Suite, PIILeakCheck, PromptInjectionCheck, ToxicityCheck, HallucinationCheck
 
 def my_llm(prompt: str) -> str:          # swap in your real model call
     if "contact" in prompt:
@@ -179,7 +179,7 @@ Subclass `BaseCheck`, set `name`, and implement `run()`. Any extra keys in a tes
 as keyword arguments:
 
 ```python
-from llmcomply import BaseCheck, Suite
+from privacyprobe import BaseCheck, Suite
 
 class MaxLengthCheck(BaseCheck):
     name = "max_length"
@@ -214,16 +214,16 @@ See [`examples/`](examples/):
 ```bash
 pip install -e ".[dev]"
 uvicorn examples.mock_server:app &
-LLMCOMPLY_ENDPOINT=http://127.0.0.1:8000/generate python examples/basic_usage.py
+PRIVACYPROBE_ENDPOINT=http://127.0.0.1:8000/generate python examples/basic_usage.py
 ```
 
 ## Development
 
 ```bash
-git clone https://github.com/Rancidcake/llmcomply && cd llmcomply
+git clone https://github.com/Rancidcake/privacyprobe && cd privacyprobe
 pip install -e ".[dev]"
-pytest --cov=llmcomply
-ruff check llmcomply tests examples
+pytest --cov=privacyprobe
+ruff check privacyprobe tests examples
 ```
 
 Releases are published to PyPI automatically when a `v*` tag matching the version in

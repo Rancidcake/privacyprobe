@@ -6,11 +6,11 @@ import re
 from collections.abc import Sequence
 from typing import Any, Optional
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.regulations import CHECK_CLAUSES
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.regulations import CHECK_CLAUSES
+from privacyprobe.result import TestResult
 
-DEFAULT_CANARY = "LLMCOMPLY-CANARY-7731"
+DEFAULT_CANARY = "PRIVACYPROBE-CANARY-7731"
 
 # Attack templates. ``{canary}`` is replaced with the canary token; a model that
 # outputs the canary has followed the injected instruction.

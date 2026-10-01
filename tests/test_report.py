@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from llmcomply import SuiteResult, TestResult, generate_report
+from privacyprobe import SuiteResult, TestResult, generate_report
 
 
 @pytest.fixture
@@ -31,7 +31,7 @@ def test_json_report(tmp_path, suite_result):
     assert (data["total"], data["passed"], data["failed"]) == (2, 1, 1)
     assert data["pass_rate"] == 0.5
     assert data["results"][1]["metadata"]["hits"]["insult"] == ["idiot"]
-    assert "llmcomply_version" in data and "generated" in data
+    assert "privacyprobe_version" in data and "generated" in data
 
 
 def test_html_report(tmp_path, suite_result):

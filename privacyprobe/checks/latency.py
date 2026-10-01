@@ -4,14 +4,14 @@ from __future__ import annotations
 
 from typing import Any
 
-from llmcomply.checks.base import BaseCheck
-from llmcomply.result import TestResult
+from privacyprobe.checks.base import BaseCheck
+from privacyprobe.result import TestResult
 
 
 class LatencyCheck(BaseCheck):
     """Fails when response time exceeds ``max_seconds``.
 
-    :class:`~llmcomply.Suite` measures the model call and passes it as the
+    :class:`~privacyprobe.Suite` measures the model call and passes it as the
     ``latency`` keyword (seconds). When responses are supplied pre-computed in
     the test case, include a ``latency`` key yourself.
     """

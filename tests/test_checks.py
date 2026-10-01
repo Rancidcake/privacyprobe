@@ -5,7 +5,7 @@ import json
 import pytest
 from pydantic import BaseModel
 
-from llmcomply.checks import (
+from privacyprobe.checks import (
     PII_PATTERNS,
     AgentFlowCheck,
     BaseCheck,

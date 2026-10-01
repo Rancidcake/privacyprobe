@@ -1,5 +1,5 @@
 # Changelog
-All notable changes to `llmcomply` will be documented here.
+All notable changes to `privacyprobe` will be documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/)
 Versioning: [Semantic Versioning](https://semver.org/)
 
@@ -7,7 +7,8 @@ Versioning: [Semantic Versioning](https://semver.org/)
 
 ## [0.2.0] - 2026-10-01
 ### Changed
-- **Renamed the package from `llmqa` to `llmcomply`** (`llmqa` is taken on PyPI) and
+- **Renamed the package from `llmqa` to `privacyprobe`** (`llmqa` is taken on PyPI, and the
+  interim name `llmcomply` is blocked as too similar to the existing `llm-comply`) and
   refocused it on privacy compliance testing for DPDP and GDPR
 - `PIILeakCheck` now validates Aadhaar numbers with the Verhoeff checksum and IBANs with
   mod-97, which sharply cuts false positives on random 12-digit numbers and IBAN-like strings
@@ -19,7 +20,7 @@ Versioning: [Semantic Versioning](https://semver.org/)
 - Compliance reports: `SuiteResult.compliance_report()` / `build_compliance_report()` group
   results by DPDP Act section and GDPR article, with PASS / FAIL / NOT TESTED per clause,
   redacted failing evidence, and HTML, Markdown and JSON output
-- `llmcomply.regulations`: a single registry of regulations, clauses and check-to-clause mappings
+- `privacyprobe.regulations`: a single registry of regulations, clauses and check-to-clause mappings
 - `BaseCheck.clauses`, so custom checks can declare the clauses they provide evidence for
 - 11 new PII types: `eu_vat`, `uk_nino`, `de_steuer_id`, `fr_nir`, `es_dni`, `es_nie`,
   `it_codice_fiscale`, `nl_bsn`, `pl_pesel` (checksum-validated where the format has one),
@@ -52,6 +53,6 @@ Versioning: [Semantic Versioning](https://semver.org/)
 - GitHub Actions CI (Python 3.9–3.11)
 - GitHub Actions auto-publish on version tag, gated on the test suite
 
-[Unreleased]: https://github.com/Rancidcake/llmcomply/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/Rancidcake/llmcomply/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/Rancidcake/llmcomply/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Rancidcake/privacyprobe/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/Rancidcake/privacyprobe/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/Rancidcake/privacyprobe/releases/tag/v0.1.0

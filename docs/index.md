@@ -1,12 +1,12 @@
-# llmcomply documentation
+# privacyprobe documentation
 
-`llmcomply` is a pip-installable library for privacy compliance testing of LLM apps against
+`privacyprobe` is a pip-installable library for privacy compliance testing of LLM apps against
 India's DPDP Act 2023 and the EU GDPR. It also covers general quality checks: hallucinations,
 prompt injection, schema conformance, toxicity, latency and agent flows.
 
-- **Install:** `pip install llmcomply`
-- **Quickstart, check catalogue and custom checks:** see the [README](https://github.com/Rancidcake/llmcomply#readme)
-- **Changes:** [CHANGELOG](https://github.com/Rancidcake/llmcomply/blob/main/CHANGELOG.md)
+- **Install:** `pip install privacyprobe`
+- **Quickstart, check catalogue and custom checks:** see the [README](https://github.com/Rancidcake/privacyprobe#readme)
+- **Changes:** [CHANGELOG](https://github.com/Rancidcake/privacyprobe/blob/main/CHANGELOG.md)
 
 ## Core concepts
 
@@ -39,7 +39,7 @@ prompt injection, schema conformance, toxicity, latency and agent flows.
 result.compliance_report(regulations=["dpdp", "gdpr"], format="html")  # or "md", "json"
 ```
 
-Each clause in [`llmcomply/regulations.py`](https://github.com/Rancidcake/llmcomply/blob/main/llmcomply/regulations.py)
+Each clause in [`privacyprobe/regulations.py`](https://github.com/Rancidcake/privacyprobe/blob/main/privacyprobe/regulations.py)
 gets a status:
 
 - **FAIL:** at least one mapped result failed, including a check that crashed

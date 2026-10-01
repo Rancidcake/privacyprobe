@@ -6,7 +6,7 @@ requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "llmcomply"
+name = "privacyprobe"
 version = "0.2.0"
 description = "Privacy compliance testing for LLM apps: DPDP Act and GDPR evidence reports, PII detection, redaction"
 readme = "README.md"
@@ -48,16 +48,16 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Rancidcake/llmcomply"
-Repository = "https://github.com/Rancidcake/llmcomply"
-Issues = "https://github.com/Rancidcake/llmcomply/issues"
-Changelog = "https://github.com/Rancidcake/llmcomply/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Rancidcake/privacyprobe"
+Repository = "https://github.com/Rancidcake/privacyprobe"
+Issues = "https://github.com/Rancidcake/privacyprobe/issues"
+Changelog = "https://github.com/Rancidcake/privacyprobe/blob/main/CHANGELOG.md"
 
 [tool.setuptools.packages.find]
-include = ["llmcomply*"]
+include = ["privacyprobe*"]
 
 [tool.setuptools.package-data]
-llmcomply = ["py.typed"]
+privacyprobe = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -72,8 +72,8 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
 ignore = ["UP007", "UP045", "SIM905"]
 
 [tool.ruff.lint.per-file-ignores]
-"llmcomply/report.py" = ["E501"]  # inline HTML/CSS template
-"llmcomply/compliance.py" = ["E501"]
+"privacyprobe/report.py" = ["E501"]  # inline HTML/CSS template
+"privacyprobe/compliance.py" = ["E501"]
 "tests/*" = ["RUF012"]  # tests mirror user-style custom checks
 
 [tool.black]

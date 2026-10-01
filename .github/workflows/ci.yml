@@ -19,5 +19,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
       - run: pip install -e ".[dev]"
-      - run: ruff check llmcomply tests examples
-      - run: pytest --cov=llmcomply --cov-report=xml
+      - run: ruff check privacyprobe tests examples
+      - run: pytest --cov=privacyprobe --cov-report=xml

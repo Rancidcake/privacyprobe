@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pytest
 
-from llmcomply import SuiteResult, TestResult, redact
-from llmcomply.redact import redact_result
+from privacyprobe import SuiteResult, TestResult, redact
+from privacyprobe.redact import redact_result
 
 TEXT = "Mail priya@example.com or call +91 98765 43210. Aadhaar 2345 6789 0124."
 
